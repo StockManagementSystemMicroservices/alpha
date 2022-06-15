@@ -1,0 +1,224 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Swagger Version Api - Stock Management System
+  license:
+    name: MIT
+servers:
+  - url: /
+paths:
+  /categories:
+    get:
+      summary: List all categories
+      operationId: listCategories
+      tags:
+        - category
+      responses:
+        200:
+          description: Array of categories
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Categories"
+        401:
+          $ref: "#/components/responses/NOT_AUTHORIZED_401"
+        500:
+          $ref: "#/components/responses/INTERNAL_SERVER_ERROR_500"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Create a category
+      operationId: createCategory
+      tags:
+        - category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Category"
+      responses:
+        201:
+          description: OK
+          headers:
+            location:
+              schema:
+                type: string
+              description: Location for getting category
+        401:
+          $ref: "#/components/responses/NOT_AUTHORIZED_401"
+        500:
+          $ref: "#/components/responses/INTERNAL_SERVER_ERROR_500"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /{categoryName}/categories:
+    get:
+      summary: List a category according categoryName
+      operationId: getCategoryByCategoryName
+      tags:
+        - category
+      parameters:
+        - name: categoryName
+          in: path
+          required: true
+          description: The name of the category
+          schema:
+            description: string
+            type: string
+            nullable: false
+            example: Electronic
+      responses:
+        200:
+          description: A category object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Category"
+        401:
+          $ref: "#/components/responses/NOT_AUTHORIZED_401"
+        500:
+          $ref: "#/components/responses/INTERNAL_SERVER_ERROR_500"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      summary: Update a category
+      operationId: updateCategory
+      tags:
+        - category
+      parameters:
+        - name: categoryName
+          in: path
+          required: true
+          description: The id of the version to update
+          schema:
+            type: string
+            nullable: false
+            example: "Electronic"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Category"
+      responses:
+        200:
+          description: OK
+          headers:
+            location:
+              schema:
+                type: string
+              description: Location for getting category
+        401:
+          $ref: "#/components/responses/NOT_AUTHORIZED_401"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      summary: Delete a category
+      operationId: deleteCategory
+      tags:
+        - category
+      parameters:
+        - name: categoryName
+          in: path
+          required: true
+          description: The id of the version to update
+          schema:
+            type: string
+            nullable: false
+            example: "Electronic"
+      responses:
+        200:
+          description: OK
+          headers:
+            location:
+              schema:
+                type: string
+              description: Location for getting category
+        401:
+          $ref: "#/components/responses/NOT_AUTHORIZED_401"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    Error:
+      required:
+        - message
+        - code
+        - subsystem
+      type: object
+      properties:
+        message:
+          description: The error message indicating what the issue is
+          type: string
+        code:
+          description: The http status code if 100=<code=<600. A custom SMS error code otherwise
+          type: integer
+        subsystem:
+          description: SMS subsystem group
+          type: integer
+    Category:
+      type: object
+      required:
+        - categoryName
+      properties:
+        categoryName:
+          type: string
+    Categories:
+      type: array
+      items:
+        $ref: "#/components/schemas/Category"
+  responses:
+    #####################################################
+    # Negative Responses
+    #####################################################
+    BAD_REQUEST_400:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NOT_AUTHORIZED_401:
+      description: The request wasn't authorized (the Authorization header was missing)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NOT_FOUND_404:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    CONFLICT_409:
+      description: Duplicate property
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    INTERNAL_SERVER_ERROR_500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"

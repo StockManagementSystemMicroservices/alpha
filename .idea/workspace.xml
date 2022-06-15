@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afb818ee-0ecd-495b-900d-47fcff3f6920" name="Changes" comment="" />
+    <list default="true" id="bd802cd9-16f4-480a-aa26-d1dd66d63926" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,14 +66,38 @@
       <recent name="C:\Spring\StockManagementSystem\alpha" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="StockManagementSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="stock.management.system" />
+  <component name="RunManager" selected="Spring Boot.StockManagementSystemApplication">
+    <configuration name="StockManagementSystemApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="StockManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stock.management.system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.stock.management.system.StockManagementSystemApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StockManagementSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="StockManagementSystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stock.management.system.StockManagementSystemApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.StockManagementSystemApplication" />
+      <item itemvalue="Spring Boot.StockManagementSystemApplication (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StockManagementSystemApplication (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
