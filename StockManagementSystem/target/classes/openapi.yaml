@@ -19,7 +19,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Categories"
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
         401:
           $ref: "#/components/responses/NOT_AUTHORIZED_401"
         500:

@@ -1,1 +1,7 @@
+com\sms\api\CategoriesApi.class
+com\sms\models\Category.class
+com\sms\models\Error.class
+com\sms\api\CategoryNameApi.class
 com\stock\management\system\StockManagementSystemApplication.class
+com\stock\management\system\controller\CategoryController.class
+com\sms\models\Categories.class
