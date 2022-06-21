@@ -1,46 +1,74 @@
 package com.stock.management.system.controller;
 
-import com.sms.api.CategoriesApi;
-import com.sms.api.CategoryNameApi;
-import com.sms.models.Category;
+import com.stock.management.system.dto.CategoryDto;
+import com.stock.management.system.entity.Category;
+import com.stock.management.system.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
 @RestController
-public class CategoryController implements CategoriesApi, CategoryNameApi {
+public class CategoryController {
 
-    @Override
-    public ResponseEntity<Void> createCategory(Category body) {
-        return null;
+    private final CategoryService categoryService;
+
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
-    @Override
-    public ResponseEntity<List<Category>> listCategories() {
-        ArrayList<Category> categories = new ArrayList<>();
-        Category category = new Category();
-        categories.add(category);
-
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.GET, path = "/category")
+    public ResponseEntity<Category> getCategory(String name) {
+        if(name != null || !name.equals(" ")) {
+            Category category = new Category();
+            category.setId(UUID.randomUUID().toString());
+            category.setName(name);
+            return ResponseEntity.ok(category);
+        }
+        else {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Not Found");
+        }
     }
 
-
-    // Category Name
-    @Override
-    public ResponseEntity<Void> deleteCategory(String categoryName) {
-        return null;
+    @RequestMapping(method = RequestMethod.POST, path = "/category")
+    public ResponseEntity<CategoryDto> save(@RequestBody CategoryDto categoryDto) {
+        if(categoryDto != null) {
+            CategoryDto existCategory = categoryService.getCategoryByName(categoryDto.getName());
+            if(existCategory == null)
+                return ResponseEntity.ok(categoryService.save(categoryDto));
+            else
+                throw new ResponseStatusException(HttpStatus.CONFLICT,"Exist category name");
+        }
+        throw new ResponseStatusException(HttpStatus.CONFLICT,"Exist category is empty");
     }
 
-    @Override
-    public ResponseEntity<Category> getCategoryByCategoryName(String categoryName) {
-        return new ResponseEntity<>(new Category(), HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.PUT, path = "/category")
+    public ResponseEntity<CategoryDto> update(@RequestBody CategoryDto categoryDto) {
+        if (categoryDto!= null) {
+            CategoryDto existCategory = categoryService.getCategoryByName(categoryDto.getName());
+            if(existCategory!= null) {
+                return ResponseEntity.ok(categoryService.update(categoryDto));
+            }
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Not Found Category");
+        }
+        else {
+            throw new ResponseStatusException(HttpStatus.CONFLICT,"Request category mustn't empty");
+        }
     }
 
-    @Override
-    public ResponseEntity<Void> updateCategory(String categoryName, Category body) {
-        return null;
+    @RequestMapping(method = RequestMethod.DELETE, path = "/category")
+    public ResponseEntity<Boolean> delete(@RequestBody String name) {
+        if(!name.isEmpty() || name !=null) {
+            CategoryDto existCategory = categoryService.getCategoryByName(name);
+            if(existCategory!= null){
+                categoryService.delete(name);
+                return ResponseEntity.ok(true);
+            }
+            else
+                throw new ResponseStatusException(HttpStatus.CONFLICT,"Not Found Category");
+        }
+        throw new ResponseStatusException(HttpStatus.CONFLICT,"Not Found Category Name");
     }
 }
