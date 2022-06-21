@@ -59,7 +59,7 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/category")
-    public ResponseEntity<Boolean> delete(@RequestBody String name) {
+    public ResponseEntity<Boolean> delete(String name) {
         if(!name.isEmpty() || name !=null) {
             CategoryDto existCategory = categoryService.getCategoryByName(name);
             if(existCategory!= null){
