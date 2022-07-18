@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk11:latest
-MAINTAINER Stock Management System Member
+MAINTAINER Stock Management System Developers
 WORKDIR /opt/app
 COPY target/stock.management.system-0.0.1-SNAPSHOT.jar .
 ENTRYPOINT ["java", "-jar", "stock.management.system-0.0.1-SNAPSHOT.jar"]

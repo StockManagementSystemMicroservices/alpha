@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd802cd9-16f4-480a-aa26-d1dd66d63926" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/dto/CategoryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/entity/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/repository/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_6_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_6_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/StockManagementSystem/ .markdownlintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StockManagementSystem/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StockManagementSystem/markdownlint.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockManagementSystem/StockManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/StockManagementSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockManagementSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockManagementSystem/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockManagementSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StockManagementSystem/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/StockManagementSystem/src/main/java/com/stock/management/system/service/impl/CategoryServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +74,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="corretto-11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/StockManagementSystem/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/StockManagementSystem" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -93,6 +87,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Spring\StockManagementSystem\alpha\StockManagementSystem" />
       <recent name="C:\Spring\StockManagementSystem\alpha\StockManagementSystem\src\main\resources" />
       <recent name="C:\Spring\StockManagementSystem\alpha" />
     </key>
@@ -165,7 +160,10 @@
       <workItem from="1655439247151" duration="1212000" />
       <workItem from="1655649237316" duration="10172000" />
       <workItem from="1655785370150" duration="547000" />
-      <workItem from="1655789322560" duration="1331000" />
+      <workItem from="1655789322560" duration="4107000" />
+      <workItem from="1655917190534" duration="2470000" />
+      <workItem from="1655966492466" duration="11000" />
+      <workItem from="1658162434088" duration="3586000" />
     </task>
     <task id="LOCAL-00001" summary="Create Stock Management System">
       <created>1655314336667</created>
@@ -188,7 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655397428188</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Swagger UI and added CRUD operation for Category">
+      <created>1655791921574</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655791921574</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Deleted requestBody parameter in delete method">
+      <created>1655792104807</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655792104807</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +220,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create Stock Management System" />
     <MESSAGE value="Added Swagger UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Swagger UI" />
+    <MESSAGE value="Added Swagger UI and added CRUD operation for Category" />
+    <MESSAGE value="Deleted requestBody paramter in delete method" />
+    <MESSAGE value="Deleted requestBody parameter in delete method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted requestBody parameter in delete method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

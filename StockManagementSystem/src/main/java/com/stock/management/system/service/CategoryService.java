@@ -1,6 +1,7 @@
 package com.stock.management.system.service;
 
 import com.stock.management.system.dto.CategoryDto;
+import com.stock.management.system.entity.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,7 +17,7 @@ public interface CategoryService {
 
     CategoryDto getCategoryByName(String name);
 
-    List<CategoryDto> getAll();
+    List<Category> getAll();
 
-    Page<CategoryDto> getAll(Pageable pageable);
+    Page<Category> getAll(Pageable pageable);
 }

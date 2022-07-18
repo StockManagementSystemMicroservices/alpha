@@ -20,12 +20,12 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/category")
-    public ResponseEntity<Category> getCategory(String name) {
+    public ResponseEntity<CategoryDto> getCategory(String name) {
         if(name != null || !name.equals(" ")) {
             Category category = new Category();
             category.setId(UUID.randomUUID().toString());
             category.setName(name);
-            return ResponseEntity.ok(category);
+            return ResponseEntity.ok(categoryService.getCategoryByName(name));
         }
         else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Not Found");
@@ -60,15 +60,12 @@ public class CategoryController {
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/category")
     public ResponseEntity<Boolean> delete(String name) {
-        if(!name.isEmpty() || name !=null) {
-            CategoryDto existCategory = categoryService.getCategoryByName(name);
-            if(existCategory!= null){
-                categoryService.delete(name);
-                return ResponseEntity.ok(true);
-            }
-            else
-                throw new ResponseStatusException(HttpStatus.CONFLICT,"Not Found Category");
+        CategoryDto existCategory = categoryService.getCategoryByName(name);
+        if(existCategory!= null){
+            categoryService.delete(name);
+            return ResponseEntity.ok(true);
         }
-        throw new ResponseStatusException(HttpStatus.CONFLICT,"Not Found Category Name");
+        else
+            throw new ResponseStatusException(HttpStatus.CONFLICT,"Not Found Category");
     }
 }
